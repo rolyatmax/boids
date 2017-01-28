@@ -37,8 +37,8 @@ var settings = {
   alignment: 80,
   cohesion: 20,
   separation: 20,
-  size: 6,
-  path: false
+  size: 4,
+  path: true
 };
 
 var colors = _colorPalettes2.default[rand() * _colorPalettes2.default.length | 0].slice(0, 3);

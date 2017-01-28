@@ -21,8 +21,8 @@ const settings = {
   alignment: 80,
   cohesion: 20,
   separation: 20,
-  size: 6,
-  path: false
+  size: 4,
+  path: true
 }
 
 let colors = colorPalettes[rand() * colorPalettes.length | 0].slice(0, 3)
