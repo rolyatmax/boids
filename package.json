@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "budo index.js --live",
-    "postinstall": "cp node_modules/standard/eslintrc.json .eslintrc || true"
+    "postinstall": "cp node_modules/standard/eslintrc.json .eslintrc || true",
+    "lint": "standard"
   },
   "repository": {
     "type": "git",
