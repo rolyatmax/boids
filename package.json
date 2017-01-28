@@ -4,9 +4,10 @@
   "description": "flocking by color",
   "main": "index.js",
   "scripts": {
-    "start": "budo index.js --live",
+    "start": "budo index.js:dist/bundle.js --live --open",
     "postinstall": "cp node_modules/standard/eslintrc.json .eslintrc || true",
-    "lint": "standard"
+    "lint": "standard",
+    "build": "browserify index.js -o dist/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -29,9 +30,9 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "babelify": "^7.3.0",
     "babel-plugin-transform-object-rest-spread": "^6.22.0",
     "babel-preset-es2015": "^6.22.0",
+    "babelify": "^7.3.0",
     "budo": "^9.4.6",
     "standard": "^8.6.0"
   },
@@ -49,5 +50,8 @@
         }
       ]
     ]
+  },
+  "peerDependencies": {
+    "browserify": "^14.0.0"
   }
 }
