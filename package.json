@@ -1,0 +1,52 @@
+{
+  "name": "boids",
+  "version": "1.0.0",
+  "description": "flocking by color",
+  "main": "index.js",
+  "scripts": {
+    "start": "budo index.js --live",
+    "postinstall": "cp node_modules/standard/eslintrc.json .eslintrc || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rolyatmax/boids.git"
+  },
+  "keywords": [
+    "boids",
+    "flocking",
+    "color"
+  ],
+  "author": "Taylor Baldwin <taylorbaldwin@gmail.com> (https://tbaldw.in)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolyatmax/boids/issues"
+  },
+  "homepage": "https://github.com/rolyatmax/boids#readme",
+  "dependencies": {
+    "alea": "^0.0.9",
+    "dat-gui": "^0.5.0",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "babelify": "^7.3.0",
+    "babel-plugin-transform-object-rest-spread": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "budo": "^9.4.6",
+    "standard": "^8.6.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ],
+          "plugins": [
+            "transform-object-rest-spread"
+          ]
+        }
+      ]
+    ]
+  }
+}
