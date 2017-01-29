@@ -1,7 +1,7 @@
 /* global requestAnimationFrame cancelAnimationFrame */
 
 import Alea from 'alea'
-import InfoBox from './lib/info_box'
+import InfoBox from './lib/info-box'
 import createResizableCanvas from './lib/resizable-canvas'
 import colorPalettes from './lib/color-palettes.json'
 import {GUI} from 'dat-gui'
