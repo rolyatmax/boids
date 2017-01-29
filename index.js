@@ -1,6 +1,7 @@
 /* global requestAnimationFrame cancelAnimationFrame */
 
 import Alea from 'alea'
+import InfoBox from './lib/info_box'
 import createResizableCanvas from './lib/resizable-canvas'
 import colorPalettes from './lib/color-palettes.json'
 import {GUI} from 'dat-gui'
@@ -8,9 +9,10 @@ import {GUI} from 'dat-gui'
 const seed = Math.random()
 const rand = new Alea(seed)
 
-const container = document.createElement('div')
-document.body.appendChild(container)
+const info = new InfoBox(document.querySelector('.info'))
+setTimeout(() => info.show(), 5000)
 
+const container = document.querySelector('.container')
 const canvas = createResizableCanvas(container, main, { margin: 0 })
 const ctx = window.ctx = canvas.getContext('2d')
 ctx.globalCompositeOperation = 'darker'
