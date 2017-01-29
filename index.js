@@ -44,7 +44,7 @@ function update (t) {
   }
 
   boids = boids.map(boid => align(boid, boidsByColor[boid.color]))
-  boids = boids.map(boid => avoid(boid, boidsByColor[boid.color]))
+  boids = boids.map(boid => avoid(boid, boids))
   boids = boids.map(boid => cohere(boid, boidsByColor[boid.color]))
 
   boids = boids.map(boid => {
