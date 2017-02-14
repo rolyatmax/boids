@@ -14,7 +14,7 @@ setTimeout(() => info.show(), 5000)
 
 const container = document.querySelector('.container')
 const canvas = createResizableCanvas(container, main, { margin: 0 })
-const ctx = window.ctx = canvas.getContext('2d')
+const ctx = window.ctx = canvas.getContext('2d', { alpha: false })
 ctx.globalCompositeOperation = 'darker'
 
 const settings = {
