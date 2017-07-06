@@ -62,18 +62,15 @@ function update (t) {
 
 function align (boid, boids) {
   let sum = [0, 0]
-  let neighbors = 0
   boids.forEach(b => {
     const distance = dist(b.position, boid.position)
     if (distance > 0 && distance < settings.alignment) {
       sum = add(sum, b.velocity)
-      neighbors += 1
     }
   })
 
-  if (!neighbors) return boid
+  if (sum[0] === 0 && sum[1] === 0) return boid
 
-  sum = divide(sum, neighbors)
   sum = normalize(sum)
   let steer = subtract(sum, boid.velocity)
   steer = normalize(steer)
@@ -89,17 +86,15 @@ function align (boid, boids) {
 
 function cohere (boid, boids) {
   let sum = [0, 0]
-  let neighbors = 0
   boids.forEach(b => {
     const distance = dist(b.position, boid.position)
     if (distance > 0 && distance < settings.cohesion) {
       sum = add(sum, b.position)
-      neighbors += 1
     }
   })
-  if (!neighbors) return boid
 
-  sum = divide(sum, neighbors)
+  if (sum[0] === 0 && sum[1] === 0) return boid
+
   let desired = subtract(sum, boid.position)
   desired = normalize(desired)
   let steer = subtract(desired, boid.velocity)
@@ -114,7 +109,6 @@ function cohere (boid, boids) {
 
 function avoid (boid, boids) {
   let sum = [0, 0]
-  let neighbors = 0
   boids.forEach(b => {
     const distance = dist(b.position, boid.position)
     if (distance > 0 && distance < settings.separation) {
@@ -122,12 +116,11 @@ function avoid (boid, boids) {
       diff = normalize(diff)
       diff = divide(diff, distance)
       sum = add(sum, diff)
-      neighbors += 1
     }
   })
-  if (!neighbors) return boid
 
-  sum = divide(sum, neighbors)
+  if (sum[0] === 0 && sum[1] === 0) return boid
+
   sum = normalize(sum)
   let steer = subtract(sum, boid.velocity)
   steer = normalize(steer)
